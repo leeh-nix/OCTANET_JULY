@@ -1,0 +1,20 @@
+.attribution {
+  background: $darkblue;
+  color: $grayishblue;
+  text-align: center;
+  margin-top: -2px;
+  @include breakpoint-up(large) {
+    text-align: left;
+  }
+
+  a {
+    color: $white;
+    transition: all 150ms ease-in-out;
+    &:hover {
+      background-image: linear-gradient(to right, $limegreen, $brightcyan);
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+}

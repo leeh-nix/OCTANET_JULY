@@ -1,0 +1,180 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Public Sans", sans-serif;
+  font-size: $font-small;
+  font-weight: 300;
+  color: $grayishblue;
+  line-height: 1.3;
+  overflow-x: hidden;
+
+  @include breakpoint-up(large) {
+    font-size: $font-med;
+  }
+
+  &.noscroll {
+    overflow: hidden;
+  }
+}
+
+// Text
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  line-height: 1.15;
+  color: $darkblue;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.3125rem; // 37px
+  margin-bottom: 1.5rem; // 24px
+  @include breakpoint-up(large) {
+    font-size: $font-xlarge;
+  }
+}
+
+h2 {
+  font-size: 1.875rem; // 30px
+  margin-bottom: 1.5625rem; // 36px
+
+  @include breakpoint-up(large) {
+    font-size: 2.25rem; // 36px
+    margin-bottom: 2.25rem; // 36px
+  }
+}
+
+p {
+  line-height: 1.5;
+  margin-bottom: 2.25rem; // 36px
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 69.375rem; // 1110px
+  margin: 0 auto;
+
+  &--pt {
+    padding-top: 4.375rem; // 70px
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem; // 96px
+    }
+  }
+  &--pr {
+    padding-right: 1.5rem; // 24px
+  }
+  &--pb {
+    padding-bottom: 4.375rem; // 70px
+
+    @include breakpoint-up(large) {
+      padding-bottom: 6rem; // 96px
+    }
+  }
+  &--pl {
+    padding-left: 1.5rem; // 24px
+  }
+  &--px {
+    padding-right: 1.5rem; // 24px
+    padding-left: 1.5rem; // 24px
+  }
+  &--py {
+    padding-top: 4.375rem; // 70px
+    padding-bottom: 4.375rem; // 70px
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem; // 96px
+      padding-bottom: 6rem; // 96px
+    }
+  }
+  &--pall {
+    padding-top: 4.375rem; // 70px
+    padding-right: 1.5rem; // 24px
+    padding-bottom: 4.375rem; // 70px
+    padding-left: 1.5rem; // 24px
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem; // 96px
+      padding-bottom: 6rem; // 96px
+    }
+  }
+}
+
+// flexbox
+.flex {
+  display: flex;
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+  &-jc-c {
+    justify-content: center;
+  }
+  &-ai-c {
+    align-items: center;
+  }
+}
+
+// Buttons
+button,
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 0.875rem 2.1875rem; // 16px 30px
+  background-image: linear-gradient(to right, $limegreen, $brightcyan);
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  color: $white;
+  font-weight: 400;
+  font-size: $font-small;
+  transition: opacity 300ms ease-in-out;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.25);
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// visibility
+.hide-for-mobile {
+  // hide for tablet and mobile
+  @include breakpoint-down(medium) {
+    display: none;
+  }
+}
+.hide-for-desktop {
+  // hide for desktop viewport
+  @include breakpoint-up(large) {
+    display: none;
+  }
+}
